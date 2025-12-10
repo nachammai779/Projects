@@ -1,0 +1,7 @@
+#ifndef SSFUN_H
+#define SSFUN_H
+#include <iostream>
+#include <cmath>
+
+
+#endif
