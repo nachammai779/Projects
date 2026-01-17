@@ -19,7 +19,7 @@ The final model was evaluated on a test split of the 24-line dataset, yielding t
 | **Precision** | 100% (Zero False Positives) |
 
 ### Feature Importance (Top Predictors)
-The classifier successfully "learned" a technical vocabulary. The following words carried the highest weight in predicting a Computer Science classification:
+The classifier successfully "learned" a technical vocabulary. The following words carried the highest weight in predicting a Computer Science document classification:
 1. **Regression** (Likelihood: 29.73%)
 2. **Multinomial** (Likelihood: 16.22%)
 3. **Adaboost** (Likelihood: 16.22%)
