@@ -143,4 +143,4 @@ def train_and_test_model(path):
 
 if __name__ == "__main__":
     train_and_test_model(r"C:\Users\Nachammai\Desktop\Data Mining\Project 1\spam\*")
-    #train_and_test_model(r"/home/joel/src/spam/*/*")
+
