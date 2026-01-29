@@ -1,8 +1,7 @@
 import random
 import math
-#%%
-## Implementation Details
 
+## Implementation Details
 ### 1. Weighted Sampling
 ###Samples are drawn based on a probability distribution that prioritizes harder examples.
 
@@ -15,7 +14,6 @@ def draw(weights):
         if choice <= 0:
             return choiceIndex
         choiceIndex += 1
-#%%
 
 ### 2. Weight Normalization
 ### Ensures weights sum to 1 after every update.
@@ -23,10 +21,9 @@ def draw(weights):
 def normalize(weights):
     norm = sum(weights)
     return tuple(m / norm for m in weights)
-#%%
+
 def sign(x):
     return 1 if x >= 0 else -1
-#%%
 
 ### 3. Weighted Error Computation
 ### Correct predictions contribute positively, incorrect ones increase error.
@@ -40,7 +37,7 @@ def computeError(h, examples, weights=None):
 
     hypothesisResults = [h(x) * y for (x, y) in examples]
     return hypothesisResults, sum(w for (z, w) in zip(hypothesisResults, weights) if z < 0)
-#%%
+
 def boost(examples, individualLearner, rounds):
     weight_distr = normalize([1.] * len(examples))
     hypotheses = []
@@ -86,17 +83,15 @@ def boost(examples, individualLearner, rounds):
 
         print('Alpha: ', current_alpha)
         print('Error: %.3f' % error)
-# Inside your boost function's for loop:
+# Inside the boost function's for loop:
         if t == 0 or t == rounds - 1:
             print(f"Visualizing weak learner for Round {t}...")
             visualize_stump(current_h, examples, round_num=t)
-    # finalHypothesis remains outside the loop
     def finalHypothesis(x):
         H = sum(a * h(x) for (a, h) in zip(alpha, hypotheses))
         return sign(H)
-
     return finalHypothesis
-#%%
+
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -132,16 +127,13 @@ def visualize_boundary(h, train_data):
     plt.legend()
     plt.grid(True, linestyle='--', alpha=0.6)
     plt.show()
-#%%
-import matplotlib.pyplot as plt
-import numpy as np
 
 def visualize_stump(h_stump, train_data, round_num=0):
-    # Professional Color Palette
+    # Color Palette
     COLOR_POS_REGION = '#4682B4' # Steel Blue
     COLOR_NEG_REGION = '#DB7093' # Pale Violet Red
 
-    # Create a dense range to find the single threshold
+    # Creating a dense range to find the single threshold
     x_range = np.linspace(0, 10, 1000)
     y_pred = [h_stump([x]) for x in x_range]
 
@@ -167,10 +159,8 @@ def visualize_stump(h_stump, train_data, round_num=0):
     plt.grid(True, linestyle=':', alpha=0.4)
     plt.legend(loc='upper right')
     plt.show()
-#%%
 
 ## Experimental Setup
-
 ### Training Data
 
 def runMain():
@@ -192,7 +182,8 @@ def runMain():
 
    print("Generating plot...")
    visualize_boundary(h, train)
-#%%
+
 if __name__ == "__main__":
    random.seed(1984)
    runMain()
+
