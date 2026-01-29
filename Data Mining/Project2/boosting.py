@@ -1,6 +1,7 @@
 import random
 import math
-
+import matplotlib.pyplot as plt
+import numpy as np
 ## Implementation Details
 ### 1. Weighted Sampling
 ###Samples are drawn based on a probability distribution that prioritizes harder examples.
@@ -186,4 +187,5 @@ def runMain():
 if __name__ == "__main__":
    random.seed(1984)
    runMain()
+
 
