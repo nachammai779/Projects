@@ -176,7 +176,7 @@ def runMain():
    print(' ')
    print('Applying Hypothesis on Train Data: ',train)
    print(' ')
-   print('Training error: %G' % error(h, train))
+   print(f'Training errors: {computeError(h, train)}')
    print(' ')
    print('Applying Hypothesis on Test Data: ',test)
    print('Test Classification: ', [h(x) for x in test])
@@ -187,5 +187,6 @@ def runMain():
 if __name__ == "__main__":
    random.seed(1984)
    runMain()
+
 
 
